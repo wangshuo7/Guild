@@ -78,7 +78,7 @@ const rules = reactive<FormRules<register_type>>({
   tx_card: [{ required: true, message: '提现账号不能为空', trigger: 'blur' }],
   yq_code: [{ required: true, message: '邀请码不能为空', trigger: 'blur' }]
 })
-async function onSubmit() {
+function onSubmit() {
   const send_data = {
     header_img: form.header_img,
     gzs_title: form.gzs_title,
@@ -89,9 +89,16 @@ async function onSubmit() {
     tx_card: form.tx_card,
     yq_code: form.yq_code
   }
-  const res = await register(send_data)
-  ElMessage.success('注册成功')
-  console.log('res', res)
+  ruleFormRef.value?.validate(async (valid) => {
+    if (valid) {
+      const res: any = await register(send_data)
+      if (res.code === 200) {
+        ElMessage.success('注册成功')
+      }
+    } else {
+      // 表单验证未通过
+    }
+  })
 }
 </script>
 
