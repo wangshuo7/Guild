@@ -136,6 +136,11 @@
   </el-dialog>
 </template>
 
+<script lang="ts">
+export default {
+  name: 'Anchor'
+}
+</script>
 <script lang="ts" setup>
 import { ref, onMounted, watch } from 'vue'
 import {
@@ -144,14 +149,13 @@ import {
   editAnchor,
   delAnchor
 } from '../../api/anchor'
-import { langList } from '../../type/language'
 import Moment from 'moment'
 import HModel from '../../components/HModel/index.vue'
 import { ElMessage } from 'element-plus'
 const queryForm = ref<any>({
   title: ''
 })
-const tableData = ref<langList[]>()
+const tableData = ref<any[]>()
 const dialogVisible = ref<boolean>()
 const operation = ref<string>('') // 操作 add \ edit
 const editId = ref<number>() // 编辑时所用id
