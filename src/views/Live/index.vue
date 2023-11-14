@@ -1,6 +1,9 @@
 <template>
   <div>
     <HModel>
+      <template #head>
+        <div>直播记录</div>
+      </template>
       <template #body>
         <el-table
           v-loading="loading"
