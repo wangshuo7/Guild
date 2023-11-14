@@ -1,6 +1,9 @@
 <template>
   <div>
     <HModel>
+      <template #head>
+        <div>消费记录</div>
+      </template>
       <template #body>
         <el-table
           v-loading="loading"

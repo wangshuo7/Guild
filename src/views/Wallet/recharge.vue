@@ -1,6 +1,9 @@
 <template>
   <div>
     <HModel>
+      <template #head>
+        <div>充值记录</div>
+      </template>
       <template #body>
         <el-table
           v-loading="loading"

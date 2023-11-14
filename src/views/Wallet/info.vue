@@ -1,12 +1,50 @@
 <template>
-  <div>
-    <div>头像:{{ infos?.header_img }}</div>
-    <div>公会名称:{{ infos?.gzs_title }}</div>
-    <div>公会简介:{{ infos?.gzs_desc }}</div>
-    <div>手机号:{{ infos?.mobile }}</div>
-    <div>云豆:{{ infos?.current_price }}</div>
-    <div>提现账号:{{ infos?.tx_card }}</div>
-    <div>uid:{{ infos?.uid }}</div>
+  <div class="card">
+    <el-card shadow="never">
+      <template #header>
+        <span>个人信息</span>
+      </template>
+      <div class="img">
+        <div class="img-box">
+          <img
+            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+            alt="头像"
+          />
+          <!-- <img :src="infos.header_img" alt=""> -->
+        </div>
+      </div>
+      <el-divider></el-divider>
+      <div class="info-item">
+        <span>公会名称</span>
+        <span>{{ infos?.header_img }}</span>
+      </div>
+      <el-divider></el-divider>
+      <div class="info-item">
+        <span>公会简介</span>
+        <span>{{ infos?.gzs_desc }}</span>
+      </div>
+      <el-divider></el-divider>
+      <div class="info-item">
+        <span>手机号</span>
+        <span>{{ infos?.mobile }}</span>
+      </div>
+      <el-divider></el-divider>
+      <div class="info-item">
+        <span>云豆</span>
+        <span>{{ infos?.current_price }}</span>
+      </div>
+      <el-divider></el-divider>
+      <div class="info-item">
+        <span>提现账号</span>
+        <span>{{ infos?.tx_card }}</span>
+      </div>
+      <el-divider></el-divider>
+      <div class="info-item">
+        <span>uid</span>
+        <span>{{ infos?.uid }}</span>
+      </div>
+      <el-divider></el-divider>
+    </el-card>
   </div>
 </template>
 
@@ -30,4 +68,28 @@ onMounted(() => {
 })
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.card {
+  width: 300px;
+  .img {
+    height: 150px;
+    margin-bottom: 20px;
+    .img-box {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto;
+      overflow: hidden;
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>
