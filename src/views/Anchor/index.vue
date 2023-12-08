@@ -1,104 +1,114 @@
 <template>
-  <div class="query">
-    <el-form :form="queryForm" label-width="80px" @submit.prevent inline>
-      <el-form-item label="用户名">
-        <el-input
-          @keyup.enter="query"
-          v-model="queryForm.username"
-          clearable
-          placeholder="请输入用户名"
-        ></el-input>
-      </el-form-item>
-      <el-form-item label="手机号">
-        <el-input
-          @keyup.enter="query"
-          v-model="queryForm.mobile"
-          clearable
-          placeholder="请输入手机号"
-        ></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button style="margin: 0 20px" type="primary" @click="query">{{
-          $t('button.query')
-        }}</el-button>
-        <el-button @click="onClear">{{ $t('button.clear') }}</el-button>
-      </el-form-item>
-    </el-form>
-  </div>
-  <HModel>
-    <template #head>
-      <span style="font-weight: bolder">{{ $t('menu.anchor') }}</span>
-      <div>
-        <el-button type="primary" @click="onAddAnchor">{{
-          $t('button.add')
-        }}</el-button>
-      </div>
-    </template>
-    <template #body>
-      <el-table
-        v-loading="loading"
-        :data="tableData"
-        style="width: 100%"
-        border
-      >
-        <el-table-column label="ID">
-          <template #default="{ row }">{{ row.uid }}</template>
-        </el-table-column>
-        <el-table-column label="用户名">
-          <template #default="{ row }">{{ row.username }}</template>
-        </el-table-column>
-        <el-table-column label="手机号">
-          <template #default="{ row }">{{ row.mobile }}</template>
-        </el-table-column>
-        <el-table-column label="抽成">
-          <template #default="{ row }">{{ row.choucheng }}</template>
-        </el-table-column>
-        <el-table-column :label="$t('table.ctime')">
-          <template #default="{ row }">{{ formatTime(row.ctime) }}</template>
-        </el-table-column>
-        <el-table-column label="当前云豆">
-          <template #default="{ row }">{{ row.current_price }}</template>
-        </el-table-column>
-        <el-table-column label="历史总云豆">
-          <template #default="{ row }">{{ row.history_all_price }}</template>
-        </el-table-column>
-        <el-table-column label="历史提现云豆">
-          <template #default="{ row }">{{ row.history_tixian_price }}</template>
-        </el-table-column>
-        <el-table-column :label="$t('table.ctime')">
-          <template #default="{ row }">{{ formatTime(row.ctime) }}</template>
-        </el-table-column>
-        <el-table-column :label="$t('table.utime')">
-          <template #default="{ row }">{{ formatTime(row.uptime) }}</template>
-        </el-table-column>
-        <el-table-column fixed="right" :label="$t('table.operate')" width="160">
-          <template #default="{ row }">
-            <el-button @click="onEditAnchor(row)" type="success">{{
-              $t('button.edit')
-            }}</el-button>
-            <el-button @click="delAnchors(row)" type="danger">{{
-              $t('button.del')
-            }}</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </template>
-    <template #foot>
-      <div class="pagination">
-        <el-pagination
-          background
-          layout="total,prev, pager, next, sizes"
-          :current-page.sync="currentPage"
-          :page-size="pageSize"
-          :page-sizes="[10, 20, 30]"
-          :total="totalItems"
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
+  <session>
+    <div class="query">
+      <el-form :form="queryForm" label-width="80px" @submit.prevent inline>
+        <el-form-item label="用户名">
+          <el-input
+            @keyup.enter="query"
+            v-model="queryForm.username"
+            clearable
+            placeholder="请输入用户名"
+          ></el-input>
+        </el-form-item>
+        <el-form-item label="手机号">
+          <el-input
+            @keyup.enter="query"
+            v-model="queryForm.mobile"
+            clearable
+            placeholder="请输入手机号"
+          ></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button style="margin: 0 20px" type="primary" @click="query">{{
+            $t('button.query')
+          }}</el-button>
+          <el-button @click="onClear">{{ $t('button.clear') }}</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+  </session>
+  <session>
+    <HModel>
+      <template #head>
+        <span style="font-weight: bolder">{{ $t('menu.anchor') }}</span>
+        <div>
+          <el-button type="primary" @click="onAddAnchor">{{
+            $t('button.add')
+          }}</el-button>
+        </div>
+      </template>
+      <template #body>
+        <el-table
+          v-loading="loading"
+          :data="tableData"
+          style="width: 100%"
+          border
         >
-        </el-pagination>
-      </div>
-    </template>
-  </HModel>
+          <el-table-column label="ID">
+            <template #default="{ row }">{{ row.uid }}</template>
+          </el-table-column>
+          <el-table-column label="用户名">
+            <template #default="{ row }">{{ row.username }}</template>
+          </el-table-column>
+          <el-table-column label="手机号">
+            <template #default="{ row }">{{ row.mobile }}</template>
+          </el-table-column>
+          <el-table-column label="抽成">
+            <template #default="{ row }">{{ row.choucheng }}</template>
+          </el-table-column>
+          <el-table-column :label="$t('table.ctime')">
+            <template #default="{ row }">{{ formatTime(row.ctime) }}</template>
+          </el-table-column>
+          <el-table-column label="当前云豆">
+            <template #default="{ row }">{{ row.current_price }}</template>
+          </el-table-column>
+          <el-table-column label="历史总云豆">
+            <template #default="{ row }">{{ row.history_all_price }}</template>
+          </el-table-column>
+          <el-table-column label="历史提现云豆">
+            <template #default="{ row }">{{
+              row.history_tixian_price
+            }}</template>
+          </el-table-column>
+          <el-table-column :label="$t('table.ctime')">
+            <template #default="{ row }">{{ formatTime(row.ctime) }}</template>
+          </el-table-column>
+          <el-table-column :label="$t('table.utime')">
+            <template #default="{ row }">{{ formatTime(row.uptime) }}</template>
+          </el-table-column>
+          <el-table-column
+            fixed="right"
+            :label="$t('table.operate')"
+            width="160"
+          >
+            <template #default="{ row }">
+              <el-button @click="onEditAnchor(row)" type="success">{{
+                $t('button.edit')
+              }}</el-button>
+              <el-button @click="delAnchors(row)" type="danger">{{
+                $t('button.del')
+              }}</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </template>
+      <template #foot>
+        <div class="pagination">
+          <el-pagination
+            background
+            layout="total,prev, pager, next, sizes"
+            :current-page.sync="currentPage"
+            :page-size="pageSize"
+            :page-sizes="[10, 20, 30]"
+            :total="totalItems"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          >
+          </el-pagination>
+        </div>
+      </template>
+    </HModel>
+  </session>
   <el-dialog
     v-model="dialogVisible"
     :title="operation === '添加' ? $t('button.add') : $t('button.edit')"
@@ -307,7 +317,6 @@ function formatTime(time: number) {
   align-items: center;
 }
 .query {
-  margin-top: 40px;
   .el-input {
     width: 250px;
   }

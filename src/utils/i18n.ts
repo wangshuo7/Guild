@@ -5,6 +5,7 @@ const i18n = createI18n({
   messages: {
     en: {
       // 面包屑
+      home: 'Home',
       welcome: 'welcome',
       anchor: 'Anchor Management',
       wallet: 'Wallet',
@@ -67,6 +68,7 @@ const i18n = createI18n({
       }
     },
     zh: {
+      home: '首页',
       welcome: '欢迎',
       anchor: '主播管理',
       wallet: '钱包',
@@ -129,6 +131,7 @@ const i18n = createI18n({
       }
     },
     tw: {
+      home: '首頁',
       welcome: '歡迎',
       anchor: '主播管理',
       wallet: '錢包',

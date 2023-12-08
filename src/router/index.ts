@@ -7,9 +7,15 @@ import { ElMessage } from 'element-plus'
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Layout',
+    redirect: '/home',
     component: Layout,
     children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/Home/index.vue')
+      },
       // 主播
       {
         path: '/anchor',

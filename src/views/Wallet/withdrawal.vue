@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <session>
     <el-form ref="ruleFormRef" :model="form" :rules="rules" inline>
       <el-form-item :label="$t('form.withdrawal')" prop="tx_dou">
         <el-input
@@ -15,7 +15,7 @@
         <el-button @click="cancel">{{ $t('button.cancel') }}</el-button>
       </el-form-item>
     </el-form>
-  </div>
+  </session>
 </template>
 
 <script lang="ts">

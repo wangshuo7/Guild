@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <session>
     <el-form ref="ruleFormRef" :model="form" inline :rules="rules">
       <el-form-item :label="$t('form.card')" prop="miyao">
         <el-input
@@ -14,7 +14,7 @@
         <el-button @click="cancel">{{ $t('button.cancel') }}</el-button>
       </el-form-item>
     </el-form>
-  </div>
+  </session>
 </template>
 
 <script lang="ts">
