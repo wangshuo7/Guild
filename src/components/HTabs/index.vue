@@ -258,7 +258,7 @@ onBeforeUnmount(() => {
 
 <style lang="less" scoped>
 .tab-header {
-  display: flex;
+  // display: flex;
   background-color: #f0f0f0;
 }
 
@@ -290,24 +290,14 @@ onBeforeUnmount(() => {
     background: #4d70ff;
   }
 }
-:deep(.el-tabs__nav-scroll) {
-  .el-tabs__nav {
-    border-radius: 0 0 0 0 !important;
-    transform: translateY(-2px) !important;
-    .el-tabs__item {
-      position: relative;
-      // top: -4px;
-      border-bottom: none;
-    }
-  }
-}
-:deep(.el-tabs__item) {
-  position: relative;
-  .float {
-    position: absolute;
-    background: rgba(0, 0, 0, 0);
-    width: 100%;
-    height: 100%;
+:deep(.el-tabs--card) > .el-tabs__header .el-tabs__nav {
+  border: 1px solid var(--el-border-color-light);
+  border-bottom: none;
+  border-radius: 0 0 0 0;
+  box-sizing: border-box;
+  top: -2px;
+  .el-tabs__item {
+    border-bottom: none;
   }
 }
 
