@@ -103,7 +103,12 @@ function closeTab(name: any) {
   } else if (activeTab.value === name) {
     // 判断是否关闭的是当前激活的标签
     // 设置 activeTab 为上一个标签的路由路径,当只剩一个标签时,跳转到最后剩下的路由即可
-    const prevTab = tabs.value.length === 1 ? tabs.value[0] : tabs.value[index]
+    const prevTab =
+      tabs.value.length === 1
+        ? tabs.value[0]
+        : index === tabs.value.length // 当前激活的并且是最后一个
+        ? tabs.value[index - 1]
+        : tabs.value[index]
     if (prevTab) {
       activeTab.value = prevTab.route
       router.push(prevTab.route)
@@ -290,14 +295,24 @@ onBeforeUnmount(() => {
     background: #4d70ff;
   }
 }
-:deep(.el-tabs--card) > .el-tabs__header .el-tabs__nav {
-  border: 1px solid var(--el-border-color-light);
-  border-bottom: none;
-  border-radius: 0 0 0 0;
-  box-sizing: border-box;
-  top: -2px;
-  .el-tabs__item {
-    border-bottom: none;
+:deep(.el-tabs__nav-scroll) {
+  .el-tabs__nav {
+    border-radius: 0 0 0 0 !important;
+    // transform: translateY(-2px) !important;
+    top: -2px;
+    .el-tabs__item {
+      position: relative;
+      border-bottom: none;
+    }
+  }
+}
+:deep(.el-tabs__item) {
+  position: relative;
+  .float {
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
   }
 }
 
