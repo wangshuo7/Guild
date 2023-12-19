@@ -17,8 +17,8 @@ const routes = [
       },
       // 主播
       {
-        path: '/anchor',
-        name: 'Anchor',
+        path: '/anchors',
+        name: 'Anchors',
         component: () => import('@/views/Anchor/index.vue')
       },
       // 直播记录

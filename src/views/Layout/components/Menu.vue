@@ -18,9 +18,9 @@
             <el-icon><Monitor /></el-icon>
             <template #title>{{ $t('home') }}</template>
           </el-menu-item>
-          <el-menu-item index="/anchor">
+          <el-menu-item index="/anchors">
             <el-icon><Orange /></el-icon>
-            <template #title>{{ $t('anchor') }}</template>
+            <template #title>{{ $t('anchors') }}</template>
           </el-menu-item>
           <el-menu-item index="/live">
             <el-icon><VideoCamera /></el-icon>

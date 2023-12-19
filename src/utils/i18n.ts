@@ -7,7 +7,7 @@ const i18n = createI18n({
       // 面包屑
       home: 'Home',
       welcome: 'welcome',
-      anchor: 'Anchor Management',
+      anchors: 'Anchor Management',
       wallet: 'Wallet',
       live: 'Live Recording',
       info: 'Personal Information',
@@ -38,7 +38,7 @@ const i18n = createI18n({
         withdrawalAccount: 'Withdrawal account'
       },
       menu: {
-        anchor: 'Anchor Management',
+        anchors: 'Anchor Management',
         live: 'Live Recording',
         wallet: 'Wallet'
       },
@@ -78,7 +78,7 @@ const i18n = createI18n({
     zh: {
       home: '首页',
       welcome: '欢迎',
-      anchor: '主播管理',
+      anchors: '主播管理',
       wallet: '钱包',
       live: '直播记录',
       info: '个人信息',
@@ -109,7 +109,7 @@ const i18n = createI18n({
         withdrawalAccount: '提现账号'
       },
       menu: {
-        anchor: '主播管理',
+        anchors: '主播管理',
         live: '直播记录',
         wallet: '钱包'
       },
@@ -149,7 +149,7 @@ const i18n = createI18n({
     tw: {
       home: '首頁',
       welcome: '歡迎',
-      anchor: '主播管理',
+      anchors: '主播管理',
       wallet: '錢包',
       live: '直播記錄',
       info: '個人信息',
@@ -180,7 +180,7 @@ const i18n = createI18n({
         withdrawalAccount: '提現賬號'
       },
       menu: {
-        anchor: '主播管理',
+        anchors: '主播管理',
         live: '直播記錄',
         wallet: '錢包'
       },

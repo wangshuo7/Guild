@@ -30,7 +30,7 @@
   <session>
     <HModel>
       <template #head>
-        <span style="font-weight: bolder">{{ $t('menu.anchor') }}</span>
+        <span style="font-weight: bolder">{{ $t('menu.anchors') }}</span>
         <div>
           <el-button type="primary" @click="onAddAnchor">{{
             $t('button.add')
@@ -148,7 +148,7 @@
 
 <script lang="ts">
 export default {
-  name: 'Anchor'
+  name: 'Anchors'
 }
 </script>
 <script lang="ts" setup>
